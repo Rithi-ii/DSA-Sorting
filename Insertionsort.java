@@ -1,21 +1,16 @@
 import java.util.*;
-public class Selectionsort {
-    public static void selection(int arr[]){
-        int n=arr.length;
-        for(int i=0;i<n;i++){
-            
-            int minindex=i;
-            for(int j=i+1;j<n;j++){
-                if(arr[j]<arr[minindex]){
-                    minindex=j;
-                }  
+public class Insertionsort {
+    public static void insert(int[] arr){
+        for(int i=1;i<arr.length;i++){
+            int temp=arr[i];
+            int j=i-1;
+            while(j>=0 &&arr[j]>temp ){
+                arr[j+1]=arr[j];
+                j--;
             }
-            int temp = arr[i];
-            arr[i] = arr[minindex];
-            arr[minindex] = temp;
-
+            arr[j+1]=temp;
         }
-
+        
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -26,10 +21,12 @@ public class Selectionsort {
             System.out.println("Enter the element "+(i+1)+":");
             arr[i]=sc.nextInt();
         }
-        selection(arr);
+        insert(arr);
+        System.out.println("Sorted Array");
         for(int x:arr){
             System.out.print(x+" ");
         }
+        
     }
     
 }
