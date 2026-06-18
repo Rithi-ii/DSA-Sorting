@@ -3,7 +3,15 @@ public class first_and_second_array_sorted {
     public static void Merge(int[] arr){
         int start=0;
         int last=arr.length;
-        int mid=last/2;
+        int mid;
+        if(arr.length%2==0){
+            mid=(last/2);
+
+        }
+        else{
+            mid=(last/2)+1;
+        }
+        
         int i=0,j=mid;
         int[] result=new int[last];
         int k=0;
